@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello, Cloud T | 個人自我介紹與即時時鐘</title>
+    <!-- SEO Optimization -->
+    <meta name="description" content="歡迎來到 Cloud T 的個人自我介紹網頁。這裡展示了我的專業技能、精選專案以及整合精確的即時時鐘，呈現最極致的現代網頁設計。">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- Lucide Icons for Premium UI Visuals -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Dynamic Cursor Glow Background Element -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <div class="app-container">
+        
+        <!-- Left Side: Profile Summary & Live Clock (Sticky) -->
+        <aside class="profile-panel glass-card" id="leftPanel">
+            <div class="profile-header">
+                <!-- Glowing Avatar Circle -->
+                <div class="avatar-wrapper">
+                    <div class="avatar">CT</div>
+                </div>
+                
+                <!-- Welcome Greetings -->
+                <span class="greeting-text">Hello, Welcome</span>
+                <h1 class="profile-name" id="userName">Hello, Cloud T</h1>
+                <p class="profile-tagline">全端開發者 & 數位體驗設計師 / Full-Stack Developer & UI Enthusiast</p>
+                
+                <!-- Live Real-Time Clock Panel -->
+                <div class="clock-container" id="clockWidget">
+                    <div class="clock-label">
+                        <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                        即時系統時間 / Live Time
+                    </div>
+                    <div class="clock-time" id="currentTime">
+                        <span id="hours">00</span>:<span id="minutes">00</span><span class="sec" id="seconds">00</span>
+                    </div>
+                    <div class="clock-date" id="currentDate">載入時間中...</div>
+                </div>
+            </div>
+
+            <!-- Panel Footer Status -->
+            <div class="profile-footer">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    探索中 / Active Now
+                </div>
+                <span>© 2026 Cloud T</span>
+            </div>
+        </aside>
+
+        <!-- Right Side: Content Details (Scrollable) -->
+        <main class="content-panel">
+            
+            <!-- Section 1: About Me -->
+            <section class="glass-card" id="aboutSection">
+                <h2 class="section-title">
+                    <i data-lucide="user"></i>
+                    關於我 / About Me
+                </h2>
+                <p class="section-text">
+                    你好！我是 <strong>Cloud T</strong>。我熱衷於將複雜的邏輯轉化為極致、流暢且具現代美感的使用者介面。對新興技術充滿好奇心，專注於高效能網頁開發與互動設計。
+                </p>
+                <p class="section-text">
+                    我相信一個傑出的網頁不僅僅是功能完備，更應該在視覺和動態體驗上帶給使用者驚喜。這也是為什麼我建立了這個融合了極光背景、玻璃擬態以及即時時鐘的展示空間。
+                </p>
+            </section>
+
+            <!-- Section 2: Skills / Stack -->
+            <section class="glass-card" id="skillsSection">
+                <h2 class="section-title">
+                    <i data-lucide="cpu"></i>
+                    技術工具箱 / My Tech Stack
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-tag" id="skillHtml">
+                        <i data-lucide="code-2"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-tag" id="skillCss">
+                        <i data-lucide="palette"></i>
+                        <span>CSS3 / Sass</span>
+                    </div>
+                    <div class="skill-tag" id="skillJs">
+                        <i data-lucide="braces"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-tag" id="skillNode">
+                        <i data-lucide="server"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="skill-tag" id="skillReact">
+                        <i data-lucide="layers"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="skill-tag" id="skillGit">
+                        <i data-lucide="git-branch"></i>
+                        <span>Git / GitHub</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Projects -->
+            <section class="glass-card" id="projectsSection">
+                <h2 class="section-title">
+                    <i data-lucide="kanban-square"></i>
+                    精選專案 / Featured Projects
+                </h2>
+                <div class="projects-list">
+                    <!-- Project 1 -->
+                    <div class="project-card" id="project1">
+                        <div class="project-header">
+                            <h3 class="project-title">Aurora UI Library</h3>
+                            <span class="project-tag">Open Source</span>
+                        </div>
+                        <p class="project-desc">一套基於 HSL 漸層與玻璃擬態設計系統打造的輕量化 Web 元件庫，提供頂級的視覺反饋與流暢動畫。</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" id="p1Link1"><i data-lucide="external-link" style="width: 14px;"></i> Preview</a>
+                            <a href="#" class="project-link" id="p1Link2"><i data-lucide="github" style="width: 14px;"></i> Repository</a>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card" id="project2">
+                        <div class="project-header">
+                            <h3 class="project-title">Synapse Analytics Dashboard</h3>
+                            <span class="project-tag">SaaS App</span>
+                        </div>
+                        <p class="project-desc">即時數據流視覺化平台，具備低延遲 WebSocket 整合、豐富的圖表展示與自適應暗黑模式切換。</p>
+                        <div class="project-links">
+                            <a href="#" class="project-link" id="p2Link1"><i data-lucide="external-link" style="width: 14px;"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Contact / Links -->
+            <section class="glass-card" id="contactSection">
+                <h2 class="section-title">
+                    <i data-lucide="send"></i>
+                    與我聯絡 / Get In Touch
+                </h2>
+                <div class="contact-grid">
+                    <a href="mailto:cloud.t@example.com" class="contact-item" id="contactEmail">
+                        <div class="contact-icon-box">
+                            <i data-lucide="mail"></i>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">cloud.t@example.com</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-item" id="contactGithub">
+                        <div class="contact-icon-box">
+                            <i data-lucide="github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">github.com/cloudt</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- JavaScript for Live Clock and Interactive Glow -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. Real-Time Clock Script with Precision and smooth updates
+        function updateClock() {
+            const now = new Date();
+            
+            // Format time components
+            const hrs = String(now.getHours()).padStart(2, '0');
+            const mins = String(now.getMinutes()).padStart(2, '0');
+            const secs = String(now.getSeconds()).padStart(2, '0');
+            
+            // Apply to DOM
+            document.getElementById('hours').textContent = hrs;
+            document.getElementById('minutes').textContent = mins;
+            document.getElementById('seconds').textContent = secs;
+            
+            // Format date component: YYYY年MM月DD日 (星期X)
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            
+            const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+            const weekDay = weekDays[now.getDay()];
+            
+            document.getElementById('currentDate').textContent = `${year} 年 ${month} 月 ${day} 日 星期${weekDay}`;
+        }
+
+        // Keep clock perfectly updated (run 10 times a second for zero lag)
+        updateClock();
+        setInterval(updateClock, 100);
+
+        // 2. Interactive Cursor Glow Positioning
+        const root = document.documentElement;
+        
+        window.addEventListener('mousemove', (e) => {
+            // Update custom CSS variables with cursor positions
+            root.style.setProperty('--mouse-x', `${e.clientX}px`);
+            root.style.setProperty('--mouse-y', `${e.clientY}px`);
+        });
+    </script>
+</body>
+</html>
