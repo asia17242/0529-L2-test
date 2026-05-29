@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, Cloud T | 個人自我介紹與即時時鐘</title>
+    <title>Cloud T | 程式作品展示與互動主機板</title>
     <!-- SEO Optimization -->
-    <meta name="description" content="歡迎來到 Cloud T 的個人自我介紹網頁。這裡展示了我的專業技能、精選專案以及整合精確的即時時鐘，呈現最極致的現代網頁設計。">
+    <meta name="description" content="歡迎來到 Cloud T 的極客風程式作品集網站。整合虛擬終端機、動態作品篩選藝廊、詳情彈窗、即時系統時鐘與 GitHub 開發者貢獻矩陣，展現高質感的互動技術展演。">
     
-    <!-- Stylesheet -->
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="index.css">
     
     <!-- Lucide Icons for Premium UI Visuals -->
@@ -15,23 +15,25 @@
 </head>
 <body>
 
-    <!-- Dynamic Cursor Glow Background Element -->
+    <!-- HTML5 Canvas Background Particle System -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Cursor Glow Overlay Element -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
     <div class="app-container">
         
-        <!-- Left Side: Profile Summary & Live Clock (Sticky) -->
+        <!-- Left Column: Profile Card, Digital Clock, Terminal & GitHub Grid (Sticky) -->
         <aside class="profile-panel glass-card" id="leftPanel">
+            
+            <!-- Avatar & Greeting Header -->
             <div class="profile-header">
-                <!-- Glowing Avatar Circle -->
                 <div class="avatar-wrapper">
                     <div class="avatar">CT</div>
                 </div>
-                
-                <!-- Welcome Greetings -->
-                <span class="greeting-text">Hello, Welcome</span>
-                <h1 class="profile-name" id="userName">Hello, Cloud T</h1>
-                <p class="profile-tagline">全端開發者 & 數位體驗設計師 / Full-Stack Developer & UI Enthusiast</p>
+                <span class="greeting-text">Welcome to my space</span>
+                <h1 class="profile-name">Hello, Cloud T</h1>
+                <p class="profile-tagline">全端工程師 & 數位體驗設計師 / Full-Stack Engineer & Interactive UI Creator</p>
                 
                 <!-- Live Real-Time Clock Panel -->
                 <div class="clock-container" id="clockWidget">
@@ -42,21 +44,73 @@
                     <div class="clock-time" id="currentTime">
                         <span id="hours">00</span>:<span id="minutes">00</span><span class="sec" id="seconds">00</span>
                     </div>
-                    <div class="clock-date" id="currentDate">載入時間中...</div>
+                    <div class="clock-date" id="currentDate">時間載入中...</div>
                 </div>
             </div>
 
-            <!-- Panel Footer Status -->
+            <!-- Interactive Developer Terminal Mockup -->
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                    </div>
+                    <div class="terminal-title">cloud-t@portfolio: ~</div>
+                    <i data-lucide="terminal" style="width: 14px; height: 14px; color: #6b7280;"></i>
+                </div>
+                <div class="terminal-body" id="terminalBody">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">guest@cloud-t:~$</span> <span class="terminal-command">welcome</span>
+                    </div>
+                    <div class="terminal-line terminal-output">
+                        歡迎來到我的作品伺服器！您可以點擊下方快捷鍵來查詢我的資訊。
+                    </div>
+                </div>
+                <!-- Interactive Quick-Command Toolbar -->
+                <div style="background: rgba(15, 17, 26, 0.9); padding: 8px 16px; border-top: 1px solid rgba(255, 255, 255, 0.03);">
+                    <div class="terminal-interactive-links">
+                        <button class="terminal-btn" onclick="runCommand('help')">help</button>
+                        <button class="terminal-btn" onclick="runCommand('skills')">skills</button>
+                        <button class="terminal-btn" onclick="runCommand('projects')">projects</button>
+                        <button class="terminal-btn" onclick="runCommand('clear')">clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub Contribution Grid Mockup -->
+            <div class="github-contributions">
+                <div class="github-title">
+                    <span><i data-lucide="github" style="width: 14px; display: inline; vertical-align: middle; margin-right: 4px;"></i> 開發貢獻矩陣 / Contributions</span>
+                    <span class="count"><span id="commitCount">842</span> commits</span>
+                </div>
+                <div class="github-grid-container">
+                    <div class="github-grid" id="githubGrid">
+                        <!-- Filled by JS dynamically -->
+                    </div>
+                </div>
+                <div class="github-legend">
+                    <span>Less</span>
+                    <span class="github-legend-box" style="background-color: rgba(255,255,255,0.04);"></span>
+                    <span class="github-legend-box lvl-1"></span>
+                    <span class="github-legend-box lvl-2"></span>
+                    <span class="github-legend-box lvl-3"></span>
+                    <span class="github-legend-box lvl-4"></span>
+                    <span>More</span>
+                </div>
+            </div>
+
+            <!-- Footer Badge -->
             <div class="profile-footer">
                 <div class="status-badge">
                     <span class="status-dot"></span>
-                    探索中 / Active Now
+                    線上活躍中 / Online Active
                 </div>
                 <span>© 2026 Cloud T</span>
             </div>
         </aside>
 
-        <!-- Right Side: Content Details (Scrollable) -->
+        <!-- Right Column: Interactive Gallery, Stack Showcase, Contact (Scrollable) -->
         <main class="content-panel">
             
             <!-- Section 1: About Me -->
@@ -66,103 +120,144 @@
                     關於我 / About Me
                 </h2>
                 <p class="section-text">
-                    你好！我是 <strong>Cloud T</strong>。我熱衷於將複雜的邏輯轉化為極致、流暢且具現代美感的使用者介面。對新興技術充滿好奇心，專注於高效能網頁開發與互動設計。
+                    你好！我是 <strong>Cloud T</strong>。我是一位熱衷於將複雜的核心邏輯轉化為極致、流暢且具現代感介面的全端工程師。
                 </p>
                 <p class="section-text">
-                    我相信一個傑出的網頁不僅僅是功能完備，更應該在視覺和動態體驗上帶給使用者驚喜。這也是為什麼我建立了這個融合了極光背景、玻璃擬態以及即時時鐘的展示空間。
+                    我相信一個出色的軟體產品不僅需要高效穩定的後端運算，更需要在前台觸覺與視覺上帶給訪客震撼。這也是為什麼我在這個展示空間中整合了互動式 HTML5 粒子畫布、虛擬終端機控制台以及磨砂玻璃擬態設計。
                 </p>
             </section>
 
-            <!-- Section 2: Skills / Stack -->
+            <!-- Section 2: Filterable Portfolio Gallery -->
+            <section class="glass-card" id="portfolioSection">
+                
+                <!-- Category Filter Toolbar -->
+                <div class="filter-container">
+                    <h2 class="section-title" style="margin-bottom: 0;">
+                        <i data-lucide="layers"></i>
+                        精選程式作品 / Projects
+                    </h2>
+                    <div class="projects-count">
+                        顯示 <span id="visibleCount">4</span> / <span id="totalCount">4</span> 件作品
+                    </div>
+                </div>
+                
+                <!-- Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="filterProjects('all', this)" id="tabAll">全部</button>
+                    <button class="filter-tab" onclick="filterProjects('frontend', this)" id="tabFrontend">前端設計</button>
+                    <button class="filter-tab" onclick="filterProjects('backend', this)" id="tabBackend">後端應用</button>
+                    <button class="filter-tab" onclick="filterProjects('tools', this)" id="tabTools">實用工具</button>
+                </div>
+
+                <!-- Projects Dynamic Grid -->
+                <div class="projects-grid" style="margin-top: 24px;">
+                    
+                    <!-- Project 1: Frontend -->
+                    <div class="portfolio-card" data-category="frontend" id="p1"
+                         onclick="openProjectModal('Aurora UI Library', 'frontend', '一套基於 HSL 高彩特調漸層與玻璃擬態（Glassmorphism）設計系統打造的輕量化 Web 元件庫。', '提供極致順暢的 60fps 視覺回饋、自適應暗黑模式與精美微動畫，能無縫整合於各類 Next.js 與 Vue 開發架構中。', 'HTML5, CSS3, JavaScript, Webpack', '#', '#')">
+                        <div class="portfolio-header">
+                            <span class="portfolio-category">前端設計 / Frontend</span>
+                            <h3 class="portfolio-title">Aurora UI</h3>
+                        </div>
+                        <p class="portfolio-desc">基於 HSL 漸層與玻璃擬態設計系統打造的輕量化 Web 元件庫，提供頂級的視覺回饋與流暢動畫。</p>
+                        <div class="portfolio-footer">
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">HTML5</span>
+                                <span class="portfolio-tag">CSS3</span>
+                            </div>
+                            <span class="portfolio-action-link">詳情 <i data-lucide="arrow-right" style="width: 14px;"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Backend -->
+                    <div class="portfolio-card" data-category="backend" id="p2"
+                         onclick="openProjectModal('Synapse IoT Engine', 'backend', '分散式高效能物聯網數據串流與處理解析引擎，具備高併發、低延遲特性。', '整合 Redis 高速快取與 Node.js Cluster 多核心運算，能承載每秒數萬次數據封包解析，並透過 WebSocket 提供即時監控端串接。', 'Node.js, Express, Redis, WebSocket', '#', '#')">
+                        <div class="portfolio-header">
+                            <span class="portfolio-category">後端應用 / Backend</span>
+                            <h3 class="portfolio-title">Synapse Engine</h3>
+                        </div>
+                        <p class="portfolio-desc">高效能物聯網數據串流與分析解析引擎，整合高併發架構與極低延遲 WebSocket 廣播。</p>
+                        <div class="portfolio-footer">
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Node.js</span>
+                                <span class="portfolio-tag">Redis</span>
+                            </div>
+                            <span class="portfolio-action-link">詳情 <i data-lucide="arrow-right" style="width: 14px;"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Tools -->
+                    <div class="portfolio-card" data-category="tools" id="p3"
+                         onclick="openProjectModal('Apex CLI Packer', 'tools', '為全端工程師打造的自動化終端機打包與靜態伺服器布署腳本工具。', '支援極速檢測本地端口、一鍵壓縮混淆 JavaScript 代碼並即時生成網頁端預覽靜態伺服器，是開發部署的得力助手。', 'Node.js, CLI, Commander, Rollup', '#', '#')">
+                        <div class="portfolio-header">
+                            <span class="portfolio-category">實用工具 / Tools</span>
+                            <h3 class="portfolio-title">Apex Packer</h3>
+                        </div>
+                        <p class="portfolio-desc">極速自動化打包與靜態伺服器部署工具，提供流暢的 Terminal 主控台互動體驗與代碼壓縮技術。</p>
+                        <div class="portfolio-footer">
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Node.js</span>
+                                <span class="portfolio-tag">CLI Tool</span>
+                            </div>
+                            <span class="portfolio-action-link">詳情 <i data-lucide="arrow-right" style="width: 14px;"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Frontend -->
+                    <div class="portfolio-card" data-category="frontend" id="p4"
+                         onclick="openProjectModal('Nebula Dashboard', 'frontend', '採用完全自適應暗黑霓虹風格建構的動態 SaaS 行銷與數據觀測控制台。', '使用 SVG 繪製動態圖表，具備動態指標計數器動畫與極光發光圖層，展現前衛科技風格的視覺傳達。', 'React, Canvas, SVG, Chart.js', '#', '#')">
+                        <div class="portfolio-header">
+                            <span class="portfolio-category">前端設計 / Frontend</span>
+                            <h3 class="portfolio-title">Nebula Panel</h3>
+                        </div>
+                        <p class="portfolio-desc">自適應暗黑霓虹風格建構的動態 SaaS 營運觀測控制台，展現豐富的圖表微動畫特效。</p>
+                        <div class="portfolio-footer">
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">React</span>
+                                <span class="portfolio-tag">Chart.js</span>
+                            </div>
+                            <span class="portfolio-action-link">詳情 <i data-lucide="arrow-right" style="width: 14px;"></i></span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Section 3: Technical Skills Toolset -->
             <section class="glass-card" id="skillsSection">
                 <h2 class="section-title">
                     <i data-lucide="cpu"></i>
-                    技術工具箱 / My Tech Stack
+                    技術工具箱 / Technical Stack
                 </h2>
-                <div class="skills-grid">
-                    <div class="skill-tag" id="skillHtml">
-                        <i data-lucide="code-2"></i>
-                        <span>HTML5</span>
-                    </div>
-                    <div class="skill-tag" id="skillCss">
-                        <i data-lucide="palette"></i>
-                        <span>CSS3 / Sass</span>
-                    </div>
-                    <div class="skill-tag" id="skillJs">
-                        <i data-lucide="braces"></i>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-tag" id="skillNode">
-                        <i data-lucide="server"></i>
-                        <span>Node.js</span>
-                    </div>
-                    <div class="skill-tag" id="skillReact">
-                        <i data-lucide="layers"></i>
-                        <span>React</span>
-                    </div>
-                    <div class="skill-tag" id="skillGit">
-                        <i data-lucide="git-branch"></i>
-                        <span>Git / GitHub</span>
-                    </div>
+                <div class="skills-grid" style="margin-top: 24px;">
+                    <div class="skill-tag" id="sHtml"><i data-lucide="code-2"></i><span>HTML5</span></div>
+                    <div class="skill-tag" id="sCss"><i data-lucide="palette"></i><span>CSS3 / Sass</span></div>
+                    <div class="skill-tag" id="sJs"><i data-lucide="braces"></i><span>JavaScript</span></div>
+                    <div class="skill-tag" id="sNode"><i data-lucide="server"></i><span>Node.js</span></div>
+                    <div class="skill-tag" id="sReact"><i data-lucide="layers"></i><span>React</span></div>
+                    <div class="skill-tag" id="sGit"><i data-lucide="git-branch"></i><span>Git / GitHub</span></div>
                 </div>
             </section>
 
-            <!-- Section 3: Projects -->
-            <section class="glass-card" id="projectsSection">
-                <h2 class="section-title">
-                    <i data-lucide="kanban-square"></i>
-                    精選專案 / Featured Projects
-                </h2>
-                <div class="projects-list">
-                    <!-- Project 1 -->
-                    <div class="project-card" id="project1">
-                        <div class="project-header">
-                            <h3 class="project-title">Aurora UI Library</h3>
-                            <span class="project-tag">Open Source</span>
-                        </div>
-                        <p class="project-desc">一套基於 HSL 漸層與玻璃擬態設計系統打造的輕量化 Web 元件庫，提供頂級的視覺反饋與流暢動畫。</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link" id="p1Link1"><i data-lucide="external-link" style="width: 14px;"></i> Preview</a>
-                            <a href="#" class="project-link" id="p1Link2"><i data-lucide="github" style="width: 14px;"></i> Repository</a>
-                        </div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="project-card" id="project2">
-                        <div class="project-header">
-                            <h3 class="project-title">Synapse Analytics Dashboard</h3>
-                            <span class="project-tag">SaaS App</span>
-                        </div>
-                        <p class="project-desc">即時數據流視覺化平台，具備低延遲 WebSocket 整合、豐富的圖表展示與自適應暗黑模式切換。</p>
-                        <div class="project-links">
-                            <a href="#" class="project-link" id="p2Link1"><i data-lucide="external-link" style="width: 14px;"></i> Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 4: Contact / Links -->
+            <!-- Section 4: Contact Connect -->
             <section class="glass-card" id="contactSection">
                 <h2 class="section-title">
                     <i data-lucide="send"></i>
-                    與我聯絡 / Get In Touch
+                    與我聯絡 / Connect With Me
                 </h2>
-                <div class="contact-grid">
-                    <a href="mailto:cloud.t@example.com" class="contact-item" id="contactEmail">
-                        <div class="contact-icon-box">
-                            <i data-lucide="mail"></i>
-                        </div>
+                <div class="contact-grid" style="margin-top: 24px;">
+                    <a href="mailto:cloud.t@example.com" class="contact-item" id="cMail">
+                        <div class="contact-icon-box"><i data-lucide="mail"></i></div>
                         <div class="contact-details">
                             <span class="contact-label">Email</span>
                             <span class="contact-value">cloud.t@example.com</span>
                         </div>
                     </a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-item" id="contactGithub">
-                        <div class="contact-icon-box">
-                            <i data-lucide="github"></i>
-                        </div>
+                    <a href="https://github.com/asia17242" target="_blank" rel="noopener noreferrer" class="contact-item" id="cGithub">
+                        <div class="contact-icon-box"><i data-lucide="github"></i></div>
                         <div class="contact-details">
                             <span class="contact-label">GitHub</span>
-                            <span class="contact-value">github.com/cloudt</span>
+                            <span class="contact-value">github.com/asia17242</span>
                         </div>
                     </a>
                 </div>
@@ -171,26 +266,43 @@
         </main>
     </div>
 
-    <!-- JavaScript for Live Clock and Interactive Glow -->
+    <!-- Glassmorphic Details Modal Popup Container -->
+    <div class="modal-overlay" id="projectModal" onclick="closeProjectModalOnOut(event)">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeProjectModal()">
+                <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+            </button>
+            <span class="modal-category" id="modalCategory">專案分類</span>
+            <h2 class="modal-title" id="modalTitle">專案名稱</h2>
+            <div class="modal-tags" id="modalTags">
+                <!-- Filled dynamically -->
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Filled dynamically -->
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-btn primary" id="modalDemoLink" target="_blank"><i data-lucide="external-link"></i> 線上預覽 Demo</a>
+                <a href="#" class="modal-btn secondary" id="modalRepoLink" target="_blank"><i data-lucide="github"></i> 原始碼 Repo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complete Dynamic Interactive Engines -->
     <script>
-        // Initialize Lucide Icons
+        // 1. Initialize Lucide Icons
         lucide.createIcons();
 
-        // 1. Real-Time Clock Script with Precision and smooth updates
+        // 2. Continuous Digital System Clock
         function updateClock() {
             const now = new Date();
-            
-            // Format time components
             const hrs = String(now.getHours()).padStart(2, '0');
             const mins = String(now.getMinutes()).padStart(2, '0');
             const secs = String(now.getSeconds()).padStart(2, '0');
             
-            // Apply to DOM
             document.getElementById('hours').textContent = hrs;
             document.getElementById('minutes').textContent = mins;
             document.getElementById('seconds').textContent = secs;
             
-            // Format date component: YYYY年MM月DD日 (星期X)
             const year = now.getFullYear();
             const month = String(now.getMonth() + 1).padStart(2, '0');
             const day = String(now.getDate()).padStart(2, '0');
@@ -200,19 +312,233 @@
             
             document.getElementById('currentDate').textContent = `${year} 年 ${month} 月 ${day} 日 星期${weekDay}`;
         }
-
-        // Keep clock perfectly updated (run 10 times a second for zero lag)
         updateClock();
         setInterval(updateClock, 100);
 
-        // 2. Interactive Cursor Glow Positioning
-        const root = document.documentElement;
-        
+        // 3. Interactive Background Canvas Particle System
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const maxParticles = 60;
+        let mouse = { x: null, y: null, radius: 120 };
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.45;
+                this.vy = (Math.random() - 0.5) * 0.45;
+                this.radius = Math.random() * 2 + 1;
+                this.color = 'rgba(99, 102, 241, ' + (Math.random() * 0.3 + 0.15) + ')';
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Wall bouncing
+                if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
+                if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+
+                // Mouse interaction / attraction repulsion
+                if (mouse.x !== null && mouse.y !== null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouse.radius) {
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        this.x -= dx / dist * force * 1.5;
+                        this.y -= dy / dist * force * 1.5;
+                    }
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        // Init particle system
+        for (let i = 0; i < maxParticles; i++) {
+            particles.push(new Particle());
+        }
+
         window.addEventListener('mousemove', (e) => {
-            // Update custom CSS variables with cursor positions
-            root.style.setProperty('--mouse-x', `${e.clientX}px`);
-            root.style.setProperty('--mouse-y', `${e.clientY}px`);
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            // Update global CSS variables for custom card hover borders
+            document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+            document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
         });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw interactive lines
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (dist < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = 'rgba(99, 102, 241, ' + (0.12 - dist / 1000) + ')';
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // 4. Interactive Developer Terminal Mockup Engine
+        const terminalBody = document.getElementById('terminalBody');
+        const commands = {
+            help: '可執行的命令有：<br> - <span class="terminal-command">skills</span>: 顯示精選技術工具箱分布<br> - <span class="terminal-command">projects</span>: 列出目前專案庫的精選作品名稱與特色<br> - <span class="terminal-command">clear</span>: 清理終端機的所有日誌紀錄',
+            skills: '┌───────────── 技術能力分布 ─────────────┐<br>│ HTML5/CSS3/Sass ────────────── [ 95% ] │<br>│ JavaScript / ES6 ───────────── [ 90% ] │<br>│ Node.js / Express ──────────── [ 85% ] │<br>│ React Framework ────────────── [ 80% ] │<br>│ Git & CI/CD pipeline ───────── [ 85% ] │<br>└───────────────────────────────────────┘',
+            projects: '✨ 精選專案列表：<br>1. <b>Aurora UI</b> - 玻璃擬態樣式元件庫 (Frontend)<br>2. <b>Synapse Engine</b> - 分散式物聯網解析核心 (Backend)<br>3. <b>Apex Packer</b> - 自動化靜態伺服器 CLI 工具 (Tools)<br>4. <b>Nebula Panel</b> - SaaS 霓虹觀測控制台 (Frontend)'
+        };
+
+        function runCommand(cmd) {
+            // Append input prompt
+            const promptLine = document.createElement('div');
+            promptLine.className = 'terminal-line';
+            promptLine.innerHTML = `<span class="terminal-prompt">guest@cloud-t:~$</span> <span class="terminal-command">${cmd}</span>`;
+            terminalBody.appendChild(promptLine);
+
+            if (cmd === 'clear') {
+                terminalBody.innerHTML = '';
+            } else if (commands[cmd]) {
+                const outputLine = document.createElement('div');
+                outputLine.className = 'terminal-line terminal-output';
+                outputLine.innerHTML = commands[cmd];
+                terminalBody.appendChild(outputLine);
+            } else {
+                const errorLine = document.createElement('div');
+                errorLine.className = 'terminal-line terminal-output';
+                errorLine.style.color = '#ef4444';
+                errorLine.innerHTML = `未知的核心命令: "${cmd}"。請點擊上方 help 查看可用指令！`;
+                terminalBody.appendChild(errorLine);
+            }
+
+            // Scroll to bottom
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }
+
+        // 5. GitHub Contributions Mockup Grid Builder
+        const githubGrid = document.getElementById('githubGrid');
+        const totalCells = 7 * 26; // 7 rows x 26 columns = 182 cells
+        let cellsHtml = '';
+        
+        for (let i = 0; i < totalCells; i++) {
+            // Generate pseudo-random levels (lvl-1 to lvl-4) to simulate real Git history
+            const randomVal = Math.random();
+            let levelClass = '';
+            if (randomVal > 0.88) {
+                levelClass = 'lvl-4';
+            } else if (randomVal > 0.75) {
+                levelClass = 'lvl-3';
+            } else if (randomVal > 0.6) {
+                levelClass = 'lvl-2';
+            } else if (randomVal > 0.4) {
+                levelClass = 'lvl-1';
+            }
+            cellsHtml += `<div class="github-cell ${levelClass}"></div>`;
+        }
+        githubGrid.innerHTML = cellsHtml;
+
+        // 6. Dynamic Project Filter Engine
+        const projectCards = document.querySelectorAll('.portfolio-card');
+        const visibleCount = document.getElementById('visibleCount');
+        const totalCount = document.getElementById('totalCount');
+        totalCount.textContent = projectCards.length;
+
+        function filterProjects(category, button) {
+            // Update active tab styling
+            document.querySelectorAll('.filter-tab').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            let visible = 0;
+            projectCards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                
+                if (category === 'all' || cardCat === category) {
+                    card.classList.remove('hidden');
+                    visible++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            visibleCount.textContent = visible;
+        }
+
+        // 7. Dynamic Details Modal Controller
+        const modal = document.getElementById('projectModal');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const modalTags = document.getElementById('modalTags');
+        const modalDemoLink = document.getElementById('modalDemoLink');
+        const modalRepoLink = document.getElementById('modalRepoLink');
+
+        function openProjectModal(title, category, shortDesc, longDesc, techTagsString, demoUrl, repoUrl) {
+            modalCategory.textContent = category === 'frontend' ? '前端設計 / Frontend' : (category === 'backend' ? '後端應用 / Backend' : '實用工具 / Tools');
+            modalTitle.textContent = title;
+            
+            // Build rich body contents
+            modalBody.innerHTML = `
+                <p><strong>專案簡介：</strong></p>
+                <p>${shortDesc}</p>
+                <p><strong>架構特色與實作技術：</strong></p>
+                <p>${longDesc}</p>
+            `;
+            
+            // Build tag bubbles
+            modalTags.innerHTML = '';
+            techTagsString.split(',').forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'modal-tag';
+                span.textContent = tag.trim();
+                modalTags.appendChild(span);
+            });
+            
+            // Bind action URL buttons
+            modalDemoLink.href = demoUrl || '#';
+            modalRepoLink.href = repoUrl || '#';
+            
+            // Slide modal overlay in
+            modal.classList.add('active');
+        }
+
+        function closeProjectModal() {
+            modal.classList.remove('active');
+        }
+
+        function closeProjectModalOnOut(event) {
+            if (event.target === modal) {
+                closeProjectModal();
+            }
+        }
     </script>
 </body>
 </html>
